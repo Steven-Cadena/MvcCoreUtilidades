@@ -1,0 +1,20 @@
+﻿<h1 style="color:crimson">Cifrado Hash Perfecto</h1>
+
+<form method="post">
+    <label>Texto: </label>
+    <input type="text" name="contenido" class="form-control" />
+    <br />
+    <label>Reultado: </label>
+    <textarea rows="5" class="form-control" name="resultado">@ViewData["TEXTOCIFRADO"]</textarea>
+    <br />
+    <button type="submit" name="accion" value="cifrar" class="btn btn-info">
+        Cifrar Contenido
+    </button>
+
+    <button type="submit" name="accion" value="comparar" class="btn btn-danger">
+        Comparar Contenido
+    </button>
+</form>
+<h1 style="color:red">
+    @ViewData["MENSAJE"]
+</h1>

@@ -22,6 +22,66 @@ namespace MvcCoreUtilidades.Controllers
             this.helperMail = helperMail;
             this.helperUpload = helperUpload;
         }
+        /*cifrado basico*/
+        public IActionResult CifradoBasico() 
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CifradoBasico(string contenido, string resultado, string accion)
+        {
+            //CUANDO ENTRE AQUI CIFRAMOS EL CONTENIDO
+            string response = HelperCryptography.EncriptarTextoBasico(contenido);
+            if (accion.ToLower() == "cifrar")
+            {
+                ViewData["TEXTOCIFRADO"] = response;
+            }
+            else if (accion.ToLower() == "comparar") 
+            {
+                //COMPARAMOS EL RESULTADO (CIFRADO CON EL CONTENIDO CIFRADO)
+                if (response != resultado)
+                {
+                    ViewData["MENSAJE"] = "Los valores no coinciden.";
+                }
+                else 
+                {
+                    ViewData["MENSAJE"] = "Mismos valores!!";
+                }
+                
+            }
+            return View();
+        }
+        /*************/
+        /*cifradoEficiente*/
+        public IActionResult CifradoEficiente() 
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CifradoEficiente(string contenido,string resultado,string accion)
+        {
+            string response = "";
+            if (accion.ToLower() == "cifrar")
+            {
+                response = HelperCryptography.EncriptarContenido(contenido,false);
+                ViewData["TEXTOCIFRADO"] = response;
+            }
+            else if (accion.ToLower() == "comparar")
+            {
+                response = HelperCryptography.EncriptarContenido(contenido,true);
+                if (response != resultado)
+                {
+                    ViewData["MENSAJE"] = "no son iguales.";
+                }
+                else 
+                {
+                    ViewData["MENSAJE"] = "PASSWORD CORRECTA";
+                }
+            }
+            return View();
+        }
+        /************************/
         public IActionResult UploadFiles()
         {
             return View();
