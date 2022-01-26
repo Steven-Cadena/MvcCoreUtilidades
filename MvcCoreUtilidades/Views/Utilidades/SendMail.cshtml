@@ -1,0 +1,27 @@
+﻿
+
+<h1>
+    Mail Net Core
+</h1>
+
+
+    <form method="post" enctype="multipart/form-data">
+        <label>Destinatario:</label>
+        <input type="text" name="destinatario" />
+        <label>Asunto:</label>
+        <input type="text" name="asunto" class="form-control" />
+        <br />
+        <label>Mensaje:</label>
+        <textarea name="mensaje" class="form-control">  </textarea>
+        <br />
+        <input type="file" name="fichero" class="form-control" />
+        <br />
+        <button type="submit" class="btn btn-dark">
+            Enviar Mail
+        </button>
+    </form>
+<h1 style="color:red">
+    @ViewData["MENSAJE"]
+</h1>
+
+
