@@ -1,0 +1,25 @@
+﻿<h1>Ejemplo Caching Personalizada</h1>
+
+<a asp-controller="Caching"
+   asp-action="MemoriaPersonalizada"
+   asp-route-tiempo="15"
+   class="btn btn-info">
+    Acutalizar Cache 15 segundos
+</a>
+
+
+<a asp-controller="Caching"
+   asp-action="MemoriaPersonalizada"
+   asp-route-tiempo="30"
+   class="btn btn-info">
+    Acutalizar Cache 30 segundos
+</a>
+
+
+<h1 style="color:blue">
+    @ViewData["FECHA"]
+</h1>
+
+<h2 style="color:red">
+    @ViewData["MENSAJE"]
+</h2>

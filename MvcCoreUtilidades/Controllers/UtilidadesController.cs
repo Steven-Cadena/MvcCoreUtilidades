@@ -119,5 +119,6 @@ namespace MvcCoreUtilidades.Controllers
             ViewData["MENSAJE"] = "Mail enviado correctamente";
             return View();
         }
+
     }
 }

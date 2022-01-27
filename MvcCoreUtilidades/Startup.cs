@@ -26,6 +26,10 @@ namespace MvcCoreUtilidades
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            /*HABILITAR CACHE + NUGET INSTALAR*/
+            services.AddResponseCaching();
+            /*HABILITAR LA MEMORIA DE CACHE*/
+            services.AddMemoryCache();
             /* PARA LOS FICHEROS GUARDAR EN DIFERENTES RUTAS*******IMPORTANTE*/
             services.AddSingleton<PathProvider>();
             /*CONFIGURACION DEL CORREO EMAIL DE LA EMPRESA*/
@@ -57,7 +61,9 @@ namespace MvcCoreUtilidades
             app.UseRouting();
 
             app.UseAuthorization();
-
+            /***********************************IMPORTANTE PARA EL CACHE*/
+            app.UseResponseCaching();
+            /************************/
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
